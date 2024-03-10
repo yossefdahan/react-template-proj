@@ -21,6 +21,7 @@ export function BookPreview({ book }) {
     }
 
     return <article>
+        <img src={book.thumbnail} alt="photo" />
         <h2>{book.title}</h2>
         <h3 className={setColorPrice()}>{book.listPrice.amount} {book.listPrice.currencyCode}</h3>
         <h4>{setOnSale()}</h4>

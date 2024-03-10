@@ -471,12 +471,15 @@ function query(filterBy = getDefaultFilter()) {
                     return book.listPrice.amount >= filterBy.price
                 })
             }
+            if (filterBy.isOnSale) {
+                books = books.filter(book => book.listPrice.isOnSale === filterBy.isOnSale)
+            }
             return books
         })
 }
 
 function getDefaultFilter() {
-    return { title: '', price: 50 }
+    return { title: '', price: 50, isOnSale:'' }
 }
 
 function get(bookId) {

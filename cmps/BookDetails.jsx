@@ -36,8 +36,8 @@ export function BookDetails({ book, onGoBack }) {
         <button onClick={onGoBack}>Back to List</button>
         <h2>{book.title}</h2>
         <img src={book.thumbnail} alt="photo" />
-        <h3>Authors: {book.authors}</h3>
-        <p>Categories: {book.categories}</p>
+        <h3>Authors: {book.authors.join(' ')}</h3>
+        <p>Categories: {book.categories.join(' ')}</p>
         <h4>Subtitle: {book.subtitle}</h4>
         <p>Language: {book.language}</p>
         {!book.pageCount && <p>Page count: {book.pageCount}  {SetDisplayPage()}</p>}
