@@ -171,7 +171,7 @@ const gBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/11.jpg",
+        "thumbnail": "./assets/BooksImages/11.jpg",
         "language": "he",
         "listPrice": {
             "amount": 176,
@@ -193,7 +193,7 @@ const gBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/10.jpg",
+        "thumbnail": "./assets/BooksImages/10.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 116,
@@ -237,7 +237,7 @@ const gBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/16.jpg",
+        "thumbnail": "./assets/BooksImages/16.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 157,
@@ -259,7 +259,7 @@ const gBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/17.jpg",
+        "thumbnail": "./assets/BooksImages/17.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 57,
@@ -369,7 +369,7 @@ const gBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/10.jpg",
+        "thumbnail": "./assets/BooksImages/10.jpg",
         "language": "en",
         "listPrice": {
             "amount": 118,
@@ -391,7 +391,7 @@ const gBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/12.jpg",
+        "thumbnail": "./assets/BooksImages/12.jpg",
         "language": "he",
         "listPrice": {
             "amount": 60,
@@ -454,7 +454,7 @@ export const bookService = {
     getEmptyBook,
     getNextBookId,
     getDefaultFilter,
-    // setFilterBy
+ 
 }
 
 function query(filterBy = getDefaultFilter()) {
@@ -479,7 +479,7 @@ function query(filterBy = getDefaultFilter()) {
 }
 
 function getDefaultFilter() {
-    return { title: '', price: 50, isOnSale:'' }
+    return { title: '', price: 50, isOnSale: '' }
 }
 
 function get(bookId) {
@@ -510,15 +510,7 @@ function getEmptyBook(title = '') {
     }
 }
 
-// function getFilterBy() {
-//     return { ...gFilterBy }
-// }
 
-// function setFilterBy(filterBy = {}) {
-//     if (filterBy.title !== undefined) gFilterBy.title = filterBy.title
-//     // if (filterBy.minSpeed !== undefined) gFilterBy.minSpeed = filterBy.minSpeed
-//     return gFilterBy
-// }
 
 function getNextBookId(bookId) {
     return storageService.query(BOOKS_KEY)

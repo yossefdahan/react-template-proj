@@ -4,9 +4,6 @@ import { BookPreview } from "./BookPreview.jsx"
 
 export function BooksList({ books, onSelectedBook }) {
 
-
-    
-
     if (!books.length) return <div>No Books Found..</div>
     return <ul>
         {
