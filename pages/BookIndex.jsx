@@ -12,10 +12,13 @@ export function BookIndex() {
 
     useEffect(() => {
         loadBooks()
-    }, [])
+    }, [filterBy])
 
     function loadBooks() {
-        bookService.query().then((books) => setBooks(books))
+        bookService.query(filterBy)
+            .then((books) => {
+                setBooks(books)
+            })
     }
 
     function onSelectedBook(book) {
