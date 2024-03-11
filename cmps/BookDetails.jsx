@@ -3,8 +3,7 @@ const { useParams, useNavigate } = ReactRouter
 const { Link } = ReactRouterDOM
 
 import { LongTxt } from "./LongTxt.jsx"
-import { bookService } from "../services/book.service.js";
-
+import { bookService } from "../services/book.service.js"
 
 export function BookDetails() {
     const [isLoading, setIsLoading] = useState(true)
@@ -29,11 +28,6 @@ export function BookDetails() {
                 setIsLoading(false)
             })
     }
-
-
-
-
-
 
     function setColorPrice() {
         if (book.listPrice.amount > 150) {
@@ -60,12 +54,12 @@ export function BookDetails() {
         } else if (book.pageCount < 100) {
             return 'Light Reading'
         }
-
     }
+
     if (isLoading) return <div>Loading details..</div>
     return <section>
         <Link to="/book"><button>Go back</button></Link>
-        {/* <button onClick={onGoBack}>Back to List</button> */}
+
         <h2>{book.title}</h2>
         <img src={book.thumbnail} alt="photo" />
         <h3>Authors: {book.authors.join(' ')}</h3>
@@ -74,10 +68,12 @@ export function BookDetails() {
         <p>Language: {book.language}</p>
         {!book.pageCount && <p>Page count: {book.pageCount}  {SetDisplayPage()}</p>}
         <p>Published date: {book.publishedDate}  {setDisplayDate()}</p>
+
         <LongTxt book={book} length={length = 100} />
+
         <p>Price: <span className={setColorPrice()}> {book.listPrice.amount}</span><span>{book.listPrice.currencyCode}</span></p>
 
-
+        <Link to={`/book/review/${book.id}`}><button>Reviews</button></Link>
 
     </section>
 
