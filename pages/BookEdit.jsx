@@ -99,14 +99,4 @@ export function BookEdit() {
             </form>
         </section>
     )
-
-
-
-
-
-
-
-
-
-
 }

@@ -5,6 +5,7 @@ import { BookFilter } from "../cmps/BookFilter.jsx"
 import { BooksList } from "../cmps/BooksList.jsx"
 
 import { bookService } from "../services/book.service.js"
+import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
 
 
 export function BookIndex() {
@@ -26,6 +27,18 @@ export function BookIndex() {
         setFilterBy(prevFilter => ({ ...prevFilter, ...fieldsToUpdate }))
     }
 
+    function onRemoveBook(bookId) {
+        bookService.remove(bookId)
+            .then(() => {
+                setBooks((prevBooks) => prevBooks.filter(book => book.id !== bookId))
+                showSuccessMsg(`Book removed successfully (${bookId})`)
+            })
+            .catch((err) => {
+                console.log('Had issues removing book', err)
+                showErrorMsg(`Book removed successfully (${bookId})`)
+            })
+    }
+
     function onUpdateBook(bookToUpdate) {
         bookService.save(bookToUpdate)
             .then((savedBook) => {
@@ -45,7 +58,7 @@ export function BookIndex() {
 
         <Link to="/book/edit"><button>Add a book</button></Link>
 
-        <BooksList books={books} onUpdateBook={onUpdateBook} />
+        <BooksList books={books} onUpdateBook={onUpdateBook} onRemoveBook={onRemoveBook} />
 
     </section>
 }

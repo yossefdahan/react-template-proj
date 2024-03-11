@@ -4,7 +4,7 @@ import { BookPreview } from "./BookPreview.jsx"
 
 
 
-export function BooksList({ books, onUpdateBook }) {
+export function BooksList({ books, onUpdateBook, onRemoveBook }) {
 
 
     function onChangePrice(book) {
@@ -13,8 +13,6 @@ export function BooksList({ books, onUpdateBook }) {
         onUpdateBook(book)
     }
 
-
-    
     if (!books.length) return <div>No Books Found..</div>
     return <ul>
         {
@@ -23,6 +21,7 @@ export function BooksList({ books, onUpdateBook }) {
                     <BookPreview book={book} />
                 </Link>
                 <div>
+                    <button className="remove-btn" onClick={() => onRemoveBook(book.id)}>Remove book</button>
                     <button onClick={() => { onChangePrice(book) }}>Change price</button>
                     <Link to={`/book/edit/${book.id}`}><button>Edit book</button></Link>
                 </div>
