@@ -14,9 +14,9 @@ export function BooksList({ books, onUpdateBook, onRemoveBook }) {
     }
 
     if (!books.length) return <div>No Books Found..</div>
-    return <ul>
+    return <ul className="books-gallery">
         {
-            books.map(book => <li key={book.id}>
+            books.map(book => <li key={book.id} className="book-gallery">
                 <Link to={`/book/${book.id}`}>
                     <BookPreview book={book} />
                 </Link>

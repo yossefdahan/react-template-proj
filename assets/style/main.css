@@ -7,7 +7,8 @@
 @import 'base/helpers.css';
 @import 'base/layout.css';
 @import 'base/forms.css';
-@import 'base/bookDetails.css';
+@import 'base/book-details.css';
+@import 'base/book-filter.css';
 
 /* Components */
 @import 'cmps/app-header.css';

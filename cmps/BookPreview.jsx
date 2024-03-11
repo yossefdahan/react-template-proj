@@ -6,7 +6,7 @@ export function BookPreview({ book }) {
 
     function setOnSale() {
         if (book.listPrice.isOnSale) {
-            return 'On sale ✅'
+            return ' -  On sale ✅'
         }
     }
 
@@ -18,10 +18,10 @@ export function BookPreview({ book }) {
         }
     }
 
-    return <article>
+    return <div className="book-view-main">
+
+        <h2 className="book-header">{book.title}</h2>
         <img src={book.thumbnail} alt="photo" />
-        <h2>{book.title}</h2>
-        <h3 className={setColorPrice()}>{book.listPrice.amount} {book.listPrice.currencyCode}</h3>
-        <h4>{setOnSale()}</h4>
-    </article>
+        <h3 className={setColorPrice()}>{book.listPrice.amount} {book.listPrice.currencyCode} {setOnSale()}</h3>
+    </div>
 }

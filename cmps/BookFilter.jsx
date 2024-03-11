@@ -22,7 +22,7 @@ export function BookFilter({ onSetFilter, filterBy }) {
 
 
 
-    return <section>
+    return <section className="filter-container">
         <h2>filter Books</h2>
 
         <form onSubmit={onFilter}>
