@@ -1,8 +1,40 @@
+const { useState, useEffect } = React
+const { useParams, useNavigate } = ReactRouter
+const { Link } = ReactRouterDOM
+
 import { LongTxt } from "./LongTxt.jsx"
+import { bookService } from "../services/book.service.js";
+
+
+export function BookDetails() {
+    const [isLoading, setIsLoading] = useState(true)
+    const [book, setBook] = useState(null)
+    const params = useParams()
+    const navigate = useNavigate()
+
+
+    useEffect(() => {
+        loadBook()
+    }, [params.bookId])
+
+    function loadBook() {
+        setIsLoading(true)
+        bookService.get(params.bookId)
+            .then(book => setBook(book))
+            .catch(err => {
+                console.log('Had issues loading book', err)
+                navigate('/book')
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+    }
 
 
 
-export function BookDetails({ book, onGoBack }) {
+
+
+
     function setColorPrice() {
         if (book.listPrice.amount > 150) {
             return 'high-price'
@@ -30,10 +62,10 @@ export function BookDetails({ book, onGoBack }) {
         }
 
     }
-
+    if (isLoading) return <div>Loading details..</div>
     return <section>
-
-        <button onClick={onGoBack}>Back to List</button>
+        <Link to="/book"><button>Go back</button></Link>
+        {/* <button onClick={onGoBack}>Back to List</button> */}
         <h2>{book.title}</h2>
         <img src={book.thumbnail} alt="photo" />
         <h3>Authors: {book.authors.join(' ')}</h3>
@@ -44,6 +76,9 @@ export function BookDetails({ book, onGoBack }) {
         <p>Published date: {book.publishedDate}  {setDisplayDate()}</p>
         <LongTxt book={book} length={length = 100} />
         <p>Price: <span className={setColorPrice()}> {book.listPrice.amount}</span><span>{book.listPrice.currencyCode}</span></p>
+
+
+
     </section>
 
 

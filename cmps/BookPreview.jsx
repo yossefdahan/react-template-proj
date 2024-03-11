@@ -6,9 +6,7 @@ export function BookPreview({ book }) {
 
     function setOnSale() {
         if (book.listPrice.isOnSale) {
-            return 'On sell ✅'
-        } else {
-            return 'Not for Sell ❌'
+            return 'On sale ✅'
         }
     }
 

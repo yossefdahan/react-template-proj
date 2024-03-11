@@ -16,9 +16,7 @@ export function BookFilter({ onSetFilter, filterBy }) {
         let { value, name: field, type } = target
         if (type === 'number') value = +value
         if (type === 'checkbox') value = target.checked
-        console.log(value, field, type);
         setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
-        console.log(filterByToEdit);
     }
 
 
@@ -45,7 +43,7 @@ export function BookFilter({ onSetFilter, filterBy }) {
                 onChange={handleChange}
                 placeholder="by min price" />
 
-            <label htmlFor="isOnSale"> For sale:</label>
+            <label htmlFor="isOnSale"> On sale:</label>
             <input type="checkbox"
                 id='isOnSale'
                 onChange={handleChange}

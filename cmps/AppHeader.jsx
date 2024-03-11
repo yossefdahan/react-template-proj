@@ -1,21 +1,22 @@
-
+const { useNavigate } = ReactRouter
+const { Link, NavLink } = ReactRouterDOM
 
 export function AppHeader({ setPage }) {
+    const navigate = useNavigate()
 
-
-    function onSetPage(ev, page) {
-        ev.preventDefault()
-        setPage(page)
-
+    function onGoHome() {
+        navigate('/')
     }
 
 
-    return( <header className="app-header full">
+    return (<header className="app-header full">
         <h1>BOOKS SHOP</h1>
         <nav className="app-nav">
-            <a href="" onClick={(ev) => onSetPage(ev, 'home')} >Home</a>  |
-            <a href="" onClick={(ev) => onSetPage(ev, 'about')} >About Us</a>  |
-            <a href="" onClick={(ev) => onSetPage(ev, 'books')} >Books</a>
+
+            <NavLink to="/">Home</NavLink> |
+            <NavLink to="/about">About us</NavLink> |
+            <NavLink to="/book">Books</NavLink>
+
         </nav>
 
     </header>)
