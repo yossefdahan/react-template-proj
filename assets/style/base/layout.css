@@ -20,11 +20,10 @@
 } */
 
 .books-gallery {
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
+  padding-left: 0;
   align-items: center;
 }
 
@@ -45,9 +44,24 @@
   border-radius: 15px;
 }
 
-.book-header{
-font-size: 1.2em;
-
-  
+.book-header {
+  font-size: 1.2em;
 }
 
+
+.add-book-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-book-btn {
+  background-color: rgb(80, 155, 80);
+  width: 150px;
+  height: 40px;
+  font-size: 1em;
+}
+
+.add-book-btn:hover {
+  background-color: green;
+}

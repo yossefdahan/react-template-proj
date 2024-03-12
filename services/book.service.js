@@ -485,7 +485,7 @@ function getDefaultFilter() {
 
 function get(bookId) {
     return storageService.get(BOOKS_KEY, bookId)
-        // .then(book => _setNextPrevBookId(book))
+        .then(book => _setNextPrevBookId(book))
 }
 
 function remove(bookId) {

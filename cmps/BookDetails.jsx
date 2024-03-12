@@ -57,9 +57,12 @@ export function BookDetails() {
     }
 
     if (isLoading) return <div>Loading details..</div>
-    return <section>
+    return <section className="details-container">
         <Link to="/book"><button>Go back</button></Link>
-
+        <div className="prev-next-book-btns">
+            <Link to={`/book/${book.prevBookId}`}><button>Prev</button></Link>
+            <Link to={`/book/${book.nextBookId}`}><button>Next</button></Link>
+        </div>
         <h2>{book.title}</h2>
         <img src={book.thumbnail} alt="photo" />
         <h3>Authors: {book.authors.join(' ')}</h3>
